@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans:400,700&display=swap');
+
+@import 'normalize';
+@import 'variables';
+@import 'mixins';
+// @import 'socials';
+// @import 'slider';
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    font-size: 10px;
+  }
+
+body {
+    min-height: 100%;
+    margin: 0;
+    @include font(1.4rem, $text-color, 400, $text-ff, 1.8);
+    position: relative;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    &__about {
+        display: flex;
+       justify-content: flex-end;
+    }
+}
+
+
+.logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+    &__link {
+        padding-left: 55px;
+    }
+}
+
+.menu {
+    list-style: none;
+    &__item {
+        display: inline-block;
+        padding: 0 55px;
+        &::before {
+            content: "";
+            display: block;
+            width: 1px;
+            height: 20px;  
+            border-left: $b-size solid #fff;
+            opacity: .5;
+            transform: translate(-60px, 20px) rotate(15deg);
+        }
+    }
+    &__link {
+        @include font(1.6rem, $title-color, 700, $text-ff, 1.5);
+        text-decoration: none;
+    
+    }
+}
+
+.menu__item:first-child::before {
+    display: none;
+}
+
+.section {
+    &__bg {
+        background-color: $bg-color;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: #ffffff;
+        text-align: center;
+    }
+    &__title {
+        @include font(4.6rem, $title-color, 700, $title-ff, 1.6);
+        margin: 0;
+    }
+    &__subtitle {
+        @include font(3rem, $title-color, 400, $title-ff, 1.6);
+        margin: 0;
+        margin-top: 35px;
+        margin-bottom: 50px;
+    }
+    &__about {
+        background-color: $bg-color;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0,0,0,.1));
+}
+}
+
+.section:first-child {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.list {
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+    margin: 50px 0;
+    &__item {
+        list-style: none;
+        margin-left: 20px;
+    }
+    &__link {
+        text-decoration: none;
+        padding: 10px 18px;
+        background: #eaeaea;
+        @include font(1.6rem, $text-color, 700, $text-ff, 1.5);
+        &:hover,
+        &:focus,
+        &:active {
+            background: $btn-color;
+            color: $title-color;
+            @include hover;
+        }
+    }
+}
+
+.gallery {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 90px;
+    &__link {
+      
+    }
+}
+  
+}
+
+.content {
+   width: 50%;
+   padding: 9rem;
+   &__title {
+    @include font(3rem, $title-color, 700, $text-ff, 1.5);
+    margin: 0;
+    margin-bottom: 17px;
+    &--sm {
+        @include font(2.2rem, $title-color, 400, $text-ff, 1.6);
+        margin: 0;
+    }
+   }
+   &__subtitle {
+       @include font(1.6rem, $title-color, 400, $text-ff, 1.5);
+       margin: 0;
+       margin-top: 45px;
+       margin-bottom: 45px;
+      
+   }
+
+  
+}
+
+.btn {
+    width: 14rem;
+    height: 3.5rem;
+    background: transparent;
+    border: $b-size solid $btn-color;
+    @include font(1.4rem, $btn-color, 700, $btn-ff, 1.6);
+    text-transform: uppercase;
+    outline: none;
+    padding: 14px 20px;
+    text-align: center;
+    text-decoration: none;
+    &:hover,
+    &:focus,
+    &:active {
+        color: $title-color;
+        background: #48bf72;
+        @include hover;
+  }
+  &--grey {
+      color: $bg-color;
+      border: $b-size solid $bg-color;
+      &:hover,
+      &:focus,
+      &:active {
+         background: $bg-color;
+         border: $b-size solid $bg-color;
+      }
+  }
+}
+
+.contact {
+    width: 700px;
+    height: 400px;
+    background-color: #fff;
+    margin: 2% auto;
+}
+
+.row {
+    font-size: 2rem;
+    color: #648880;
+    margin: 3rem;
+}
+
+
+
+
+
+
+
