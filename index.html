@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Test</title>
+    <title>Foliac</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/styles.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 </head>
 <body>
    <header>
@@ -17,33 +18,33 @@
                  </a>
                  <ul class="menu">
                      <li class="menu__item">
-                         <a  href="#" class="menu__link">Acceuil</a>
+                         <a  href="#acceuil" class="menu__link">Acceuil</a>
                      </li>
                      <li class="menu__item">
-                        <a  href="#" class="menu__link">Portfolio</a>
+                        <a  href="#portfolio" class="menu__link">Portfolio</a>
                      </li>
                      <li class="menu__item">
-                        <a  href="#" class="menu__link">About</a>
+                        <a  href="#about" class="menu__link">About</a>
                      </li>
                      <li class="menu__item">
-                        <a  href="#" class="menu__link">Contact</a>
+                        <a  href="#contact" class="menu__link">Contact</a>
                      </li>
                 </ul>
             </nav>
        </div>
     </header>
        <main>
-           <section class="section section__bg " style="background-image: url(image/img1.jpg);">
+           <section class="section section__first" id="home" style="background-image: url(image/computer.png);">
                <div class="container">
                    <h1 class="section__title">Voici votre prochain portfolio</h1>
                    <p class="section__subtitle">Un template psd simple et gratuit  </p>
-                   <a href="#" class="btn">Mes travaux</a>
+                   <a href="#contact" class="btn">Mes travaux</a>
                </div>
                
            </section>
-           <section class="section section__projets">
+           <section class="section section__projets" id="portfolio">
                <div class="container">
-                   <div class="list">
+                   <ul class="list">
                        <li class="list__item">
                            <a class="list__link" href="#">Tous les projets</a>
                        </li>
@@ -59,57 +60,108 @@
                        <li class="list__item">
                             <a class="list__link" href="#">Motion design</a>
                        </li>
-                    </div>
-                    <div class="gallery">
-                        <a href="#" class="gallery__link">
-                            <img src="image/img2.jpg">
-                        </a>
-                        <a href="#" class="gallery__link">
-                            <img src="image/img4.jpg">   
-                        </a>
-                        <a href="#" class="gallery__link">
-                            <img src="image/img3.jpg">
-                        </a>
-                        <a href="#" class="gallery__link">
-                             <img src="image/img5.jpg">
-                        </a> 
-                    </div>
+                    </ul>
+                <div class="portfolio">
+                        <div class="portfolio__gallery">
+                            <a href="#" class="portfolio__link portfolio__link--sm">
+                                <img src="image/img2.jpg" alt="" class="portfolio__image">
+                                <div class="portfolio__text">
+                                    <h2 class="portfolio__title">Forest app</h2>
+                                    <p class="portfolio__subtitle">application mobile</p>
+                                </div>
+                            </a>
+                            <a href="#" class="portfolio__link portfolio__link--sm">
+                                <img src="image/img7.jpg" alt="" class="portfolio__image">
+                                <div class="portfolio__text">
+                                    <h2 class="portfolio__title">Forest app</h2>
+                                    <p class="portfolio__subtitle">application mobile</p>
+                                </div>   
+                            </a>
+                        </div>
+                        <div class="portfolio__gallery">
+                            <a href="#" class="portfolio__link portfolio__link--big">
+                                <img src="image/img4.jpg" alt="" class="portfolio__image">
+                                <div class="portfolio__text">
+                                    <h2 class="portfolio__title">Forest app</h2>
+                                    <p class="portfolio__subtitle">application mobile</p>
+                                </div>
+                            </a>
+                            <a href="#" class="portfolio__link portfolio__link--big">
+                                 <img src="image/img5.jpg" alt="" class="portfolio__image">
+                                 <div class="portfolio__text">
+                                    <h2 class="portfolio__title">Forest app</h2>
+                                    <p class="portfolio__subtitle">application mobile</p>
+                                </div>
+                            </a> 
+                        </div>
+                </div>
                 </div>
             </section>
-           <section class="section section__about" style="background-image: url(image/img6.jpg);">
-               <div class="container container__about">
+           <section class="section section__about" id="about" style="background-image: url(image/img6.jpg);">
+               <div class="container container__flex">
                    <div class="content">
                        <h2 class="content__title">Michel Dupont</h2>
                        <h3 class="content__title--sm">Webdesigner, illustrateur, auteur</h3>
                        <p class="content__subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                       <a href="#" class="btn btn--grey">Me contacter</a>
+                       <a href="#contact" class="btn btn--grey">Me contacter</a>
                    </div>
                </div>
           </section>
-          <section class="form">
-            <div class="container">
+          <section class="form" id="contact">
+            <div class="container container__flex">
                 <form action="#" method="POST" class="contact">
-                    <div class="contact__row">
-                        <label for="name"></label>
-                        <input type="name" class="username" placeholder="Votre nom" id="name">
+                    <h2 class="contact__text">Me contacter</h2>
+                    <div class=" contact__wrapper">
+                        <div class="input__container">
+                            <i class="fas fa-user"></i>
+                             <input type="text" class="username" placeholder="Votre nom" id="name">
+                        </div>
+                        <div class="input__container">
+                            <i class="far fa-envelope"></i>
+                            <input type="email" class="email" placeholder="Votre email" id="adress">
+                        </div>
                     </div>
-                    <div class="contact__row">
-                        <label for="adress"></label>
-                        <input type="email" class="email" placeholder="Votre email" id="adress">
+                    <div class="input__container">
+                        <i class="fas fa-pencil-alt"></i>
+                        <textarea id="comments" rows="8" placeholder="Votre message"></textarea>
                     </div>
-                    <div class="contact__row">
-                         <label for="comments"></label>
-                         <textarea id="comments" rows="4" placeholder="Votre message"></textarea>
-                    </div>
-                    <div class="row">
-                         <a class="btn btn--big">Envoyer</a>
-                    </div>
-                </form>
+                    <button class="btn btn--big" type="submit">Envoyer</button>
+                 </form>
             </div>
        </section>
        </main>
 
-       <footer></footer>
+       <footer id="acceuil">
+           <div class="container container__flex">
+               <span class="footer__text">Copyright © 2015 by beneggen - www.beneggen.fr</span>
+               <div class="socials">
+                    <a href="#" target="_blank" class="social social--blue">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" target="_blank" class="social social--dark-blue">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="" target="_blank" class="social social--pink">
+                        <i class="fab fa-dribbble"></i>
+                    </a>
+                   <a href="#" target="_blank" class="social social--purple">
+                        <i class="fab fa-behance"></i>
+                    </a>
+                </div>
+           </div>
+       </footer>
+
+       
+       <script type="text/javascript">
+           $(document).ready(function(){
+              $("body").on("click","a", function (event) {
+                  event.preventDefault();
+                  var id  = $(this).attr('href'),
+                      top = $(id).offset().top;
+                  $('body,html').animate({scrollTop: top}, 1500);
+              });
+          });
+          </script>
    
     <script src="https://kit.fontawesome.com/d357e3b57e.js" crossorigin="anonymous"></script>
 </body>

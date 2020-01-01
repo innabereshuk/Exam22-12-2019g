@@ -3,12 +3,17 @@
 @import 'normalize';
 @import 'variables';
 @import 'mixins';
-// @import 'socials';
-// @import 'slider';
+
 
 * {
     box-sizing: border-box;
 }
+
+a, button {
+   text-decoration: none;
+   border-radius: 3px;
+}
+
 
 html {
     height: 100%;
@@ -22,22 +27,23 @@ body {
     position: relative;
 }
 
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    &__flex {
+        display: flex;
+       justify-content: flex-end;
+    }
+}
+ 
+// Header
+
 header {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
 }
-
-.container {
-    max-width: 1140px;
-    margin: 0 auto;
-    &__about {
-        display: flex;
-       justify-content: flex-end;
-    }
-}
-
 
 .logo {
     display: flex;
@@ -59,8 +65,8 @@ header {
             content: "";
             display: block;
             width: 1px;
-            height: 20px;  
-            border-left: $b-size solid #fff;
+            height: 16px;  
+            border-left: $b-size solid $title-color;
             opacity: .5;
             transform: translate(-60px, 20px) rotate(15deg);
         }
@@ -68,6 +74,12 @@ header {
     &__link {
         @include font(1.6rem, $title-color, 700, $text-ff, 1.5);
         text-decoration: none;
+        &:hover,
+        &:focus,
+        &:active {
+            color: $btn-color;
+            @include hover;
+        }
     
     }
 }
@@ -76,15 +88,18 @@ header {
     display: none;
 }
 
+// Main 
+
 .section {
-    &__bg {
-        background-color: $bg-color;
+    &__first {
         background-position: center;
+        background: rgba(60, 73, 85, .8);
         background-repeat: no-repeat;
         background-size: cover;
-        color: #ffffff;
+        color: $title-color;
         text-align: center;
     }
+          
     &__title {
         @include font(4.6rem, $title-color, 700, $title-ff, 1.6);
         margin: 0;
@@ -100,9 +115,9 @@ header {
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        background-image: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0,0,0,.1));
-}
-}
+    }
+  }
+
 
 .section:first-child {
     min-height: 100vh;
@@ -134,17 +149,73 @@ header {
     }
 }
 
-.gallery {
-    display: inline-flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-bottom: 90px;
+.portfolio {
+    display: flex;
+    padding-bottom: 90px;
+     &__gallery {
+    display: flex;
+    flex-direction: column;
+    }
     &__link {
-      
+        margin: 20px;
+        overflow: hidden;
+        text-decoration: none;
+        background-size: cover;
+        border-radius: 15px;
+        position: relative;
+    }
+    &__image {
+        border-style: none;
+        min-width: 100%;
+        min-height: 100%;
+        background: $btn-color;
+    }
+    &__text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        right: 0;
+        bottom: 0;
+        text-align: center;
+        visibility: hidden;
+        transform: translate(-50%, -30%);
+    }
+    &__title { 
+        @include font(3rem, $title-color, 700, $text-ff, 1.5);
+        margin: 20px 0;
+    }
+    &__subtitle {
+        @include font(1.6rem, $title-color, 400, $text-ff, 1.5);
+        margin: 0;
+        margin-top: -10px;
     }
 }
-  
 
+.portfolio__link:hover:after {
+    content: "";
+    display: block;
+     position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(72, 191, 114, 0.9);
+    @include hover;
+}
+
+.portfolio__link:hover {
+    transform: scale(1.05);
+    transition: all .3s ease-in;
+    box-shadow: 2px 2px 15px rgba(41, 54, 46, 0.8) ;
+}
+   
+
+
+.portfolio__link:hover .portfolio__text {
+     visibility: visible;
+     z-index: 1;
+}
+  
 
 .content {
    width: 50%;
@@ -163,20 +234,18 @@ header {
        margin: 0;
        margin-top: 45px;
        margin-bottom: 45px;
-      
    }
-
-  
 }
 
 .btn {
     width: 14rem;
-    height: 3.5rem;
+    height: 4rem;
     background: transparent;
     border: $b-size solid $btn-color;
     @include font(1.4rem, $btn-color, 700, $btn-ff, 1.6);
     text-transform: uppercase;
     outline: none;
+    cursor: pointer;
     padding: 14px 20px;
     text-align: center;
     text-decoration: none;
@@ -197,20 +266,325 @@ header {
          border: $b-size solid $bg-color;
       }
   }
+  &--big {
+      width: 700px;
+      height: 50px;
+      padding: 15px;
+      background: $btn-color;
+      color: $title-color;
+      font-weight: 700;
+      &:hover,
+      &:focus,
+      &:active {
+          background:$bg-color;
+          color: $title-color;
+          @include hover;
+          border: $b-size solid $bg-color;
+      }
+  }
 }
 
 .contact {
-    width: 700px;
-    height: 400px;
     background-color: #fff;
-    margin: 2% auto;
+    width: 700px;
+    margin: 50px auto;
+    text-align: center;
+    &__container {
+        display: flex;
+   }
+   &__text {
+      @include font(2.6rem, $btn-color, 700, $title-ff, 1.6);
+      margin: 0;
+      margin-bottom: 50px;
+  }
+  &__wrapper {
+      display: flex;
+    
+  }
 }
 
-.row {
-    font-size: 2rem;
-    color: #648880;
-    margin: 3rem;
+.input__container {
+    display: flex;
+    width: 100%;
+    margin-bottom: 33px;
+    i {
+        position: relative;
+        min-width: 50px;
+        padding: 15px;
+        font-size: 2.2rem;
+        background: $bg-color;
+        color: $title-color;
+        text-align: center;
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+        &:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-top: 10px solid transparent;
+        border-left: 10px solid $bg-color;
+        border-bottom: 10px solid transparent;
+        transform: translate(15px, 0);
+        z-index: 1;
+    }
+        }
+    textarea {
+        width: 700px - 50px;
+        outline: none;
+        border-radius: 3px;
+        border: $b-size solid $bg-color;
+        &:hover,
+        &:focus,
+        &:active {
+            border: $b-size solid $btn-color;
+            @include hover;
+        }
+    }
 }
+
+
+input {
+    height: 50px;
+    width: 350px - 65px;
+    outline: none;
+    border: $b-size solid $bg-color;
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
+    border-left: transparent;
+    &:hover,
+    &:focus,
+    &:active {
+          border: $b-size solid $btn-color;
+          border-left: transparent;
+          @include hover;
+    }
+}
+
+.input__container:hover i,
+.input__container:focus i,
+.input__container:active i {
+    background: $btn-color;
+    color: $bg-color;
+    @include hover;
+}
+
+.input__container:hover i::after,
+.input__container:focus i::after,
+.input__container:active i::after {
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-top: 10px solid transparent;
+        border-left: 10px solid $btn-color;
+        border-bottom: 10px solid transparent;
+        transform: translate(15px, 0);
+        z-index: 1;
+        @include hover;
+}
+
+
+[placeholder] {
+    padding-left: 25px;
+    @include font(1.6rem, $text-color, 700, $text-ff, 1.6);
+    opacity: .8;
+  }
+
+#comments {
+    padding-top: 20px;
+}
+
+.username {
+    margin-right: 15px;
+}
+
+.far {
+    margin-left: 15px;
+}
+
+// Footer
+
+footer .container__flex {
+    justify-content: space-between;
+    align-items: center;
+    padding: 70px;
+    text-align: center;
+}
+
+footer {
+    background: $bg-color;
+}
+
+.footer__text {
+     @include font(1.6rem, $title-color, 400, $text-ff, 1.6);
+        
+    }
+
+.social {
+    display: inline-block;
+    width: 50px;
+    height: 30px;
+    margin: 20px;
+    position: relative;
+    &--blue {
+    background: #55acee;
+    &::before,
+    &::after {
+        content: "";
+	    position: absolute;
+	    left: 0;
+	    width: 0;
+	    height: 0;
+	    border-left: 25px solid transparent;
+         border-right: 25px solid transparent;
+         border-radius: 3px;
+    }
+    &::before {
+        top: -12.5px;
+        border-bottom: 12.5px solid #55acee;
+
+    }
+    &::after {
+        bottom: -12.5px; 
+	    border-top: 12.5px solid #55acee;
+
+}
+}
+    &--dark-blue {
+        background: #0976b4;
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+            border-radius: 3px;
+        }
+        &::before {
+            top: -12.5px;
+            border-bottom: 12.5px solid #0976b4;
+    
+        }
+        &::after {
+            bottom: -12.5px; 
+            border-top: 12.5px solid #0976b4;
+        }
+    }
+        &--pink {
+        background: #ea4c89;
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+            border-radius: 3px;
+        }
+        &::before {
+            top: -12.5px;
+            border-bottom: 12.5px solid #ea4c89;
+    
+        }
+        &::after {
+            bottom: -12.5px; 
+            border-top: 12.5px solid #ea4c89;
+    
+    }
+    }
+        &--purple {
+        background: #1769ff;
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+            border-radius: 3px;
+        }
+        &::before {
+            top: -12.5px;
+            border-bottom: 12.5px solid #1769ff;
+    
+        }
+        &::after {
+            bottom: -12.5px; 
+            border-top: 12.5px solid #1769ff;
+    }
+    }
+}
+
+    .fab {
+        font-size: 2.6rem;
+        color: $title-color;
+    }
+
+    .social:hover,
+    .social:focus,
+    .social:active {
+        background: $btn-color;
+        transform: scale(1.2);
+        opacity: .8;
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+    }
+
+   
+    .social:hover .fab,
+    .social:focus .fab,
+    .social:active .fab {
+        color: $bg-color;
+         @include hover;
+         cursor: pointer;    
+    }
+
+    .social:hover:before,
+    .social:active:before,
+    .social:focus:before,
+    .social:hover::after,
+    .social:focus::after,
+    .social:active::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-left: 25px solid transparent;
+        border-right: 25px solid transparent;
+        border-radius: 3px;
+    }
+
+    .social:hover:before,
+    .social:active:before,
+    .social:focus:before {
+        top: -12.5px;
+        border-bottom: 12.5px solid $btn-color;
+    }
+
+    .social:hover::after,
+    .social:focus::after,
+    .social:active::after {
+        bottom: -12.5px; 
+        border-top: 12.5px solid $btn-color;
+    }
+
+    
+
+   
+ 
+
+
+
+
+
+
 
 
 
