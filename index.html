@@ -7,7 +7,7 @@
     <title>Foliac</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/styles.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script> -->
 </head>
 <body>
    <header>
@@ -35,7 +35,7 @@
     </header>
        <main>
            <section class="section section__first" id="home" style="background-image: url(image/computer.png);">
-               <div class="container">
+               <div class="container container__flex">
                    <h1 class="section__title">Voici votre prochain portfolio</h1>
                    <p class="section__subtitle">Un template psd simple et gratuit  </p>
                    <a href="#contact" class="btn">Mes travaux</a>
@@ -113,16 +113,16 @@
                     <h2 class="contact__text">Me contacter</h2>
                     <div class=" contact__wrapper">
                         <div class="input__container">
-                            <i class="fas fa-user"></i>
+                            <i class="fas fa-user input__container__icon"></i>
                              <input type="text" class="username" placeholder="Votre nom" id="name">
                         </div>
                         <div class="input__container">
-                            <i class="far fa-envelope"></i>
+                            <i class="far fa-envelope input__container__icon"></i>
                             <input type="email" class="email" placeholder="Votre email" id="adress">
                         </div>
                     </div>
-                    <div class="input__container">
-                        <i class="fas fa-pencil-alt"></i>
+                    <div class="input__container input__container--big">
+                        <i class="fas fa-pencil-alt input__container__icon"></i>
                         <textarea id="comments" rows="8" placeholder="Votre message"></textarea>
                     </div>
                     <button class="btn btn--big" type="submit">Envoyer</button>
@@ -152,7 +152,7 @@
        </footer>
 
        
-       <script>
+       <!-- <script>
            $(document).ready(function(){
               $("body").on("click","a", function (event) {
                   event.preventDefault();
@@ -161,7 +161,8 @@
                   $('body,html').animate({scrollTop: top}, 1500);
               });
           });
-          </script>
+          </script> -->
+      
    
     <script src="https://kit.fontawesome.com/d357e3b57e.js" crossorigin="anonymous"></script>
 </body>
