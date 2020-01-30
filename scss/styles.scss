@@ -694,7 +694,7 @@ footer {
         height: 100vh;
         background-color: hsla(209, 17%, 28%, .7);
         margin: 0;
-        padding-top: 20rem;
+        padding-top: 12rem;
         padding-bottom: 5rem;
         top: 0;
         right: 0;
@@ -776,9 +776,11 @@ footer {
     }
     .menu-burger:focus .menu-burger__line::before {
         transform: rotate(45deg) translate(-.5rem, -.6rem);
+        transition: all .3s ease-in-out;
     }
     .menu-burger:focus .menu-burger__line::after {
         transform: rotate(-45deg) translate(-.8rem, .8rem);
+        transition: all .3s ease-in-out;
     }
     .list {
         &__item {
@@ -985,10 +987,10 @@ footer {
      }
     .menu {
         width: 100%;
-        height: 80vh;
+        height: 100vh;
         transform: translate(0, -100%);
         transition: all .5s ease-in;
-        background-color: hsla(209, 17%, 28%, .8);
+        background-color: hsla(209, 17%, 28%, .9);
         &__link {
             @include font(3rem, $title-color, 400, $text-ff, 1.4);
         }
