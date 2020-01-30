@@ -974,7 +974,7 @@ footer {
         font-size: 4rem;
     }
     .section__first .container {
-        padding: 0 1rem;
+        padding: 3rem 2rem 0 2rem;
     }
     .section__subtitle {
         font-size: 2.5rem;
@@ -1028,6 +1028,11 @@ footer {
    .contact {
     max-width: 90%;
 }
+   [placeholder] {
+        padding-left: 1.5rem;
+        @include font(1.4rem, $text-color, 700, $text-ff, 1.4);
+        opacity: .8;
+  }
 
 }
 
@@ -1067,17 +1072,22 @@ footer {
     }
 }
 
-@media (max-width: 400px), (orientation: landscape)  {
+
+
+@media (max-device-height: 500px)  {
     .section:first-child {
         height: 100vh;
     }
     .container h1 {
         font-size: 2.8rem;
-        margin-top: 12rem;
+        margin-top: 8rem;
     }
     .section__subtitle {
         font-size: 2rem;
         margin-bottom: 3rem;
+    }
+    .logo {
+        padding: 1rem;
     }
     .menu {
         width: 100%;
@@ -1090,6 +1100,9 @@ footer {
             @include font(3rem, $title-color, 400, $text-ff, 1.4);
             padding: 0 0 1.5rem 40%;
         }
+    }
+    .menu-burger {
+        top: 3.5rem;
     }
     .menu-burger:focus + .menu,
     .menu-burger:active + .menu  {
