@@ -56,12 +56,10 @@ header {
     position: relative;
     padding-top: 7rem;
     padding-bottom: 7rem;
+    z-index: 2;
     &__link {
         padding-left: 5.5rem;
     }
-}
-.menu-burger {
-    display: none;
 }
 
 .menu {
@@ -71,7 +69,7 @@ header {
         display: inline-block;
         padding: 0 5.5rem;
         &:first-child {
-           display: none;
+            display: none;
         }
         &::before {
             content: "";
@@ -92,8 +90,11 @@ header {
             color: $btn-color;
             @include hover;
         }
-    
+        
     }
+}
+.menu-burger {
+    display: none;
 }
 .menu__item:nth-child(1)::before {
     display: none;
@@ -625,12 +626,15 @@ footer {
 
     
  @media screen and (max-width: 1024px) {
-     .container {       
+    .container {       
            max-width: 750px;
     }
-    .logo__link {
+    .logo {
+        z-index: 20;
+        &__link {
         padding-left: 2rem;
-    }
+        }
+    }   
      .menu { 
          flex-basis: 60%;
          justify-content: space-between;
@@ -744,24 +748,12 @@ footer {
             background-color: $title-color;
         }
         &__line {
-            display: inline-block;
+            display: block;
             min-width: 2.7rem;
             height: .3rem;
+            margin: .8rem;
             background: $title-color;
-            &::before,
-            &::after {
-                content: "";
-                display: block;
-                width: 2.7rem;
-                height: .3rem;
-                background: $title-color;
-            }
-            &::before {
-                margin: 1rem auto;
-            }
-            &::after {
-                margin: -3.3rem auto;
-            }
+           
         }
     }
     
@@ -770,24 +762,34 @@ footer {
          transform: translate(0, 0);
          transition: all .5s ease-in-out;
     }
-    .menu-burger:focus .menu-burger__line::before,
-    .menu-burger:focus .menu-burger__line::after {
+    .menu-burger:focus .menu-burger__line,
+    .menu-burger:focus .menu-burger__line {
         background: $bg-color;
     }
-    .menu-burger:focus .menu-burger__line::before {
-        transform: rotate(45deg) translate(-.5rem, -.6rem);
+    .menu-burger:focus .menu-burger__line--left {
+        width: 4rem;
+        transform: rotate(45deg) translate(.5rem, 1rem);
         transition: all .3s ease-in-out;
     }
-    .menu-burger:focus .menu-burger__line::after {
-        transform: rotate(-45deg) translate(-.8rem, .8rem);
+    .menu-burger:focus .menu-burger__line--right{
+        width: 4rem;
+        transform: rotate(-45deg) translate(.5rem, -1rem);
         transition: all .3s ease-in-out;
     }
+    .menu-burger:focus .menu-burger__line--midlle {
+        opacity: 0;
+    }
+
+    .menu-burger {
+        display: block;
+   }
     .list {
         &__item {
            margin: 0;
         }
         &__link {
             margin: 2px;
+            min-width: 20%;
             padding: .8rem;
             border: 1px dotted $bg-color;
             &:hover,
@@ -995,6 +997,9 @@ footer {
             @include font(3rem, $title-color, 400, $text-ff, 1.4);
         }
     }
+    .menu-burger {
+        right: 2rem;
+    }
     .menu-burger:focus + .menu,
     .menu-burger:active + .menu  {
         opacity: 1;
@@ -1029,10 +1034,9 @@ footer {
 @media screen and (max-width: 400px) {
     .container h1 {
         font-size: 2.8rem;
-        margin-top: 5rem;
     }
     .section__first .container {
-         margin:  5rem auto;
+         padding-top: 10rem;
     }
     .section__subtitle {
         font-size: 2rem;
@@ -1053,7 +1057,7 @@ footer {
         margin: 1rem;
     }
     .menu {
-        height: 80vh;
+        height: 100vh;
     }
     .menu-burger {
         right: 2rem;
@@ -1061,6 +1065,38 @@ footer {
     .contact {
         min-width: 80%;
     }
+}
+
+@media (max-width: 400px), (orientation: landscape)  {
+    .section:first-child {
+        height: 100vh;
+    }
+    .container h1 {
+        font-size: 2.8rem;
+        margin-top: 12rem;
+    }
+    .section__subtitle {
+        font-size: 2rem;
+        margin-bottom: 3rem;
+    }
+    .menu {
+        width: 100%;
+        height: 100vh;
+        padding-top: 5rem;
+        transform: translate(0, -100%);
+        transition: all .5s ease-in;
+        background-color: hsla(209, 17%, 28%, .9);
+        &__link {
+            @include font(3rem, $title-color, 400, $text-ff, 1.4);
+            padding: 0 0 1.5rem 40%;
+        }
+    }
+    .menu-burger:focus + .menu,
+    .menu-burger:active + .menu  {
+        opacity: 1;
+        transform: translate(0, 0);
+        transition: all .5s ease-in-out;
+   }
 }
 
 
