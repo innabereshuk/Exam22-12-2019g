@@ -17,10 +17,8 @@
                      <img src="image/foliac-logo.png" alt="Logo">
                  </a>
 
-                 <button class="menu-burger">
-                     <span class="menu-burger__line menu-burger__line--left"></span>
-                     <span class="menu-burger__line menu-burger__line--midlle"></span>
-                     <span class="menu-burger__line menu-burger__line--right"></span>
+                 <button class="menu-burger" id="toggler">
+                    <i class="fas fa-bars"></i>
                 </button>
 
                  <ul class="menu">
@@ -160,6 +158,46 @@
                 </div>
            </div>
        </footer>
+
+
+       <script>
+
+        (function(){
+            let toggler = document.getElementById('toggler');
+
+            toggler.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.body.classList.toggle('menu-opened');
+            })
+
+            let links = document.querySelectorAll('.menu__link');
+
+            links.forEach(link => {
+                link.addEventListener('click', function() {
+                    document.body.classList.remove('menu-opened');
+                })
+            })
+
+            let sections = document.querySelectorAll('.section');
+            
+            window.addEventListener('scroll', function() {
+
+                document.body.classList.remove('menu-opened');
+                let firstViewportSection = null;
+
+                sections.forEach(function(section) {
+                    let rect = section.getBoundingClientRect();
+
+                    if (!firstViewportSection) {
+                        if (rect.bottom  > 30) {
+                            firstViewportSection = section;
+                        }
+                    }
+                })
+            })
+        })();
+
+       </script>
 
            
    
