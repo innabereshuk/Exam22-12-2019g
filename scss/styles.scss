@@ -701,9 +701,9 @@ footer {
         padding-top: 15rem;
         top: 0;
         right: 0;
-        z-index: 10;
+        z-index: 7;
         transform: translate(100%, 0);
-        transition: all .5s ease-in;
+        transition: all .25s ease-in;
         // opacity: 0;
         &__item {
             display: block;
@@ -721,7 +721,7 @@ footer {
         &__link {
             display: block;
             width: 100%;
-            padding: 0 0 2.8rem 20%;
+            padding: 1.4rem 0;
             text-align: center;
             text-transform: uppercase;
             @include font(2rem, $title-color, 400, $text-ff, 1.4);
@@ -747,40 +747,36 @@ footer {
         cursor: pointer;
         text-align: center;
         line-height: 2.3rem;
-       &:hover {
+        &:hover {
            opacity: .8;
            box-shadow: 0 0 10px 1px rgba(21, 42, 23, 0.6);
+           @include hover;
        }
-        &:focus,
-        &:active {
-            background-color: $title-color;
-            opacity: 0;
-            z-index: 15;
-        }
     }
 
     .fas {
         font-size: 2.5rem;
         color: $title-color;
-       
-     }
-     
-     .menu-burger:focus + .menu,
-     .menu-opened .menu {
+    }
+        
+    .menu-opened .menu {
          transform: translate(0, 0);
-         transition: all .4s ease-in-out;
+         transition: all .25s ease-in-out;
          opacity: 1;
      }
-    
-   
-     .menu-burger:focus + .menu::after {
+    .menu-opened .menu-burger {
+         opacity: 0;
+     }
+       
+    .menu-burger:focus + .menu::after {
         content: "×";
         color: $title-color;
         font-size: 5rem;
         position: absolute;
         top: 4rem;
         right: 7.8rem;
-        z-index: 18;
+        z-index: 10;
+        transition: all .25s ease-in-out;
    } 
     .menu-burger {
         display: block;
@@ -871,8 +867,8 @@ footer {
 	         left: 0;
 	         width: 0;
 	         height: 0;
-	         border-left: 15px solid transparent;
-             border-right: 15px solid transparent;
+	         border-left: 16px solid transparent;
+             border-right: 16px solid transparent;
         }
         &::before {
              top: -8px;
@@ -893,8 +889,8 @@ footer {
                 left: 0;
                 width: 0;
                 height: 0;
-                border-left: 15px solid transparent;
-                border-right: 15px solid transparent;
+                border-left: 16px solid transparent;
+                border-right: 16px solid transparent;
             }
             &::before {
                 top: -8px;
@@ -915,8 +911,8 @@ footer {
                 left: 0;
                 width: 0;
                 height: 0;
-                border-left: 15px solid transparent;
-                border-right: 15px solid transparent;
+                border-left: 16px solid transparent;
+                border-right: 16px solid transparent;
             }
             &::before {
                 top: -8px;
@@ -938,8 +934,8 @@ footer {
                 left: 0;
                 width: 0;
                 height: 0;
-                border-left: 15px solid transparent;
-                border-right: 15px solid transparent;
+                border-left: 16px solid transparent;
+                border-right: 16px solid transparent;
             }
             &::before {
                 top: -8px;
@@ -967,8 +963,8 @@ footer {
         left: 0;
         width: 0;
         height: 0;
-        border-left: 15px solid transparent;
-        border-right: 15px solid transparent;
+        border-left: 16px solid transparent;
+        border-right: 16px solid transparent;
         outline: none;
     }
 
@@ -1011,31 +1007,30 @@ footer {
      }
     .menu {
         width: 100%;
-        height: 100vh;
+        height: 70vh;
         transform: translate(0, -100%);
         transition: all .5s ease-in;
+        padding-top: 10rem;
         background-color: hsla(209, 17%, 28%, .9);
         &__link {
             @include font(1.6rem, $title-color, 400, $text-ff, 1.4);
-            padding: 0;
-            padding-bottom: 2rem;
+            padding: 1.4rem  0;
+          
         }
     }
     .menu-burger {
         right: 2rem;
-        z-index: 20;
     }
 
     .menu-burger:focus + .menu::after {
         content: "×";
-         right: 3rem;
-         z-index: 25;
+         right: 2.7rem;
     } 
-    .menu-burger:focus + .menu,
+  
     .menu-burger:active + .menu  {
         opacity: 1;
         transform: translate(0, 0);
-        transition: all .5s ease-in-out;
+        transition: all .25s ease-in-out;
    }
    .list {
        display: flex;
@@ -1093,7 +1088,7 @@ footer {
         margin: 1rem;
     }
     .menu {
-        height: 100vh;
+        height: 80vh;
     }
     .menu-burger {
         right: 2rem;
@@ -1119,6 +1114,9 @@ footer {
     }
     .logo {
         padding: 1rem;
+        &__link {
+           padding-left: 1rem;
+        }
     }
     .menu {
         width: 100%;
@@ -1128,18 +1126,26 @@ footer {
         transition: all .5s ease-in;
         background-color: hsla(209, 17%, 28%, .9);
         &__link {
-            @include font(3rem, $title-color, 400, $text-ff, 1.4);
-            padding: 0 0 1.5rem 40%;
+            @include font(1.6rem, $title-color, 400, $text-ff, 1.4);
+            padding: 1.4rem 0;
         }
     }
     .menu-burger {
-        top: 3.5rem;
+        top: 3rem;
+        right: 5rem;
     }
-    .menu-burger:focus + .menu,
-    .menu-burger:active + .menu  {
+
+    .menu-burger:focus + .menu::after {
+        content: "×";
+        font-size: 4rem;
+        right: 6.2rem;
+        top: 2.2rem;
+    } 
+    
+    .menu-opened + .menu  {
         opacity: 1;
         transform: translate(0, 0);
-        transition: all .5s ease-in-out;
+        transition: all .25s ease-in-out;
    }
 }
 
